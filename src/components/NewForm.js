@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import App from "../App";
+
 
 const NewForm = (props) => {
   const [input, setInput] = useState({
@@ -12,21 +12,15 @@ const NewForm = (props) => {
     isbought: false
   })
 
-  const handleChange = (e) => {
-    setInput({ ...input,{
-      [e.target.name]: e.target.value,
-      [e.target.recipeint]: e.target.value,
-      [e.target.occation]: e.target.value,
-      [e.target.price]: e.target.value,
-      [e.target.link]: e.target.value,
-      [e.target.img]: e.target.value,
-      [e.target.isbought]: e.target.value
-    }})
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    props.addItem(input)
+const handleChange = (e) => {
+    setInput({ ...input,[e.target.name]: e.target.value,})  
   }
+const handleCheckBox = (e) =>
+  setInput({ ...input, isbought: !input.isbought });
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  props.addItem(input)
 }
 
 return (
@@ -38,13 +32,13 @@ return (
     <label htmlFor="occation">Occation</label>
     <input name="occation" id="occation" value={input.occation} onChange={handleChange} />
     <label htmlFor="price">Price</label>
-    <input type="number" id="price" value={input.price} onChange={handleChange} />
+    <input type="number" name="price" id="price" value={input.price} onChange={handleChange} />
     <label htmlFor="link">Link</label>
-    <input type="url" id="link" value={input.link} onChange={handleChange} />
-    <label htmlFor="img">Img</label>
-    <input type="image" id="img" value={input.img} onChange={handleChange} />
+    <input type="text" name="link" id="link" value={input.link} onChange={handleChange} />
+    <label htmlFor="img">Image</label>
+    <input type="text" name="img" id="img" value={input.img} onChange={handleChange} />
     <label htmlFor="isbought">Isbought</label>
-    <input type="checkbox"/>
+    <input type="checkbox" name="isBought" onChange={handleCheckBox}/>
     <input type="submit" value="Create a New Wishlist"/>
   </form>
 )
