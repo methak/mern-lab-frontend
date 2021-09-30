@@ -40,11 +40,12 @@ function App() {
     <div className="App">
         <h1>Wishlist App</h1>
         <NewForm addItem={addItem} />
-        <div>
+        <div className ="itemCard">
           {wishlist && wishlist.map(item => (
-            <h4>{item.name} {item.recipient} {item.occation} {item.price} {item.isbought  ? "True" : "False"}</h4>
-            
-            
+            <>
+            <h4>{item.name} {item.recipient} </h4>
+            <h4>{item.occation} {item.price} {item.isbought  ? "True" : "False"}</h4>
+            </>
           ))}
 
 
