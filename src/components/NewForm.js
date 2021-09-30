@@ -25,7 +25,7 @@ const NewForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // props.(name in App.js create router)(input)
+    props.addItem(input)
   }
 }
 
