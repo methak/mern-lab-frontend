@@ -15,6 +15,8 @@ function App() {
         <Switch>
         <Route exact path="/wishlist" component={ItemLists} />
         <Route exact path="/wishlist/new" render={(routerProps)=><NewForm {...routerProps} />}/> 
+        <Route exact path="/wishlist/:id/edit" component={EditForm} />
+        <Route exact path="/wishlist/:id" component={ItemDetail}/>
         </Switch>
         </Router>
     </div>
