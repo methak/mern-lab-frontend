@@ -1,55 +1,22 @@
 import { useState, useEffect } from 'react'
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ItemLists from "./components/ItemLists"
+import ItemDetail from './components/ItemDetail';
 import NewForm from './components/NewForm';
+import EditForm from './components/EditForm';
 
 function App() {
-  const [wishlist, setWishlist] = useState([])
-
-  const getWishlist = async () => {
-    try {
-      const wishlist = await fetch("http://localhost:9000/wishlist");
-      const parsedWishlist = await wishlist.json();
-      setWishlist(parsedWishlist);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  // Fetch (POST - CREATE)
-  const addItem = async (data) => {
-    try {
-      const configs = {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-      const createdItem = await fetch("http://localhost:9000/wishlist", configs)
-      const parsedItem = await createdItem.json()
-      console.log(parsedItem)
-      setWishlist([...wishlist, parsedItem])
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    getWishlist();
-  }, []);
+  
   return (
     <div className="App">
-        <h1>Wishlist App</h1>
-        <NewForm addItem={addItem} />
-        <div >
-          {wishlist && wishlist.map(item => (
-            <div className ="itemCard">
-            <h4>{item.name} {item.recipient} </h4>
-            <h4>{item.occation} {item.price} {item.isbought  ? "True" : "False"}</h4>
-            </div>
-          ))}
-
-
-        </div>
+      <h1>Wishlist App</h1>
+    <Router>
+        <Switch>
+        <Route exact path="/wishlist" component={ItemLists} />
+        <Route exact path="/wishlist/new" render={(routerProps)=><NewForm {...routerProps} />}/> 
+        </Switch>
+        </Router>
     </div>
   );
 }

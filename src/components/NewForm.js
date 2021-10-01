@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 
 
 const NewForm = (props) => {
@@ -20,7 +21,25 @@ const handleCheckBox = (e) =>
 
 const handleSubmit = (e) => {
   e.preventDefault()
-  props.addItem(input)
+  addItem(input)
+}
+// Fetch (POST - CREATE)
+const addItem = async (data) => {
+  try {
+    const configs = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+    await fetch("http://localhost:9000/wishlist", configs)
+    props.history.push('/wishlist')
+  
+  } catch (error) {
+    console.log(error)
+    props.history.push('/wishlist/new')
+  }
 }
 
 return (
