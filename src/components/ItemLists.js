@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import '../../src/App.css';
 
 function ItemLists(props) {
     const [wishlist, setWishlist] = useState([])
@@ -20,12 +21,14 @@ function ItemLists(props) {
   }, []);
     return (
         <>
-        <div>
+        <div className="wrapper">
             
           {wishlist && wishlist.map(item => (
-            <div className ="itemCard" key={item._id} >
-            <h4>{item.name} {item.recipient} </h4>
-            <h4>{item.occation} {item.price} {item.isbought  ? "True" : "False"}</h4>
+            <div className ="card red" key={item._id} >
+            <h2>{item.name}</h2> 
+            <p> {item.recipient} </p>
+            <p>{item.occation} {item.price} {item.isbought  ? "True" : "False"}</p>
+            <Link to={`/wishlist/${item._id}`}> &#62;&#62; </Link>
             </div>
           ))}
        
