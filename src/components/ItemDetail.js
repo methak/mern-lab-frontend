@@ -1,6 +1,6 @@
 
 import {useState, useEffect} from 'react';
-
+import { Link } from "react-router-dom";
 
 function ItemDetail(props) {
     const currentId = props.match.params.id
@@ -20,8 +20,16 @@ function ItemDetail(props) {
     return (
         <>
             <h1>Detail Page</h1>
-            <p>{wishlist._id}</p>
-            {/* will add code after test */}
+            <p>Id: {wishlist._id}</p>
+            <p>Name: {wishlist.name}</p>
+            <p>Recipient: {wishlist.recipient}</p>
+            <p>Occasion: {wishlist.occasion}</p>
+            <p>Price: {wishlist.price}</p>
+            <p>Link: {wishlist.link}</p>
+            <p>isBought: {wishlist.isBought ? "True" : "False"}</p>
+            
+            <Link to={"/wishlist"}>Go Back </Link>
+            <Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link>
         </>
 
     )

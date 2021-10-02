@@ -27,7 +27,7 @@ function ItemLists(props) {
             <div className ="card red" key={item._id} >
             <h2>{item.name}</h2> 
             <p> {item.recipient} </p>
-            <p>{item.occation} {item.price} {item.isbought  ? "True" : "False"}</p>
+            <p>{item.occasion} {item.price} {item.isBought  ? "True" : "False"}</p>
             <Link to={`/wishlist/${item._id}`}> &#62;&#62; </Link>
             </div>
           ))}
