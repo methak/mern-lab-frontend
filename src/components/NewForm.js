@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const NewForm = (props) => {
   const [input, setInput] = useState({
     name: "",
-    recipeint: "",
-    occation: "",
+    recipient: "",
+    occasion: "",
     price: 0,
     link: "",
     img: "",
@@ -46,10 +46,10 @@ return (
   <form onSubmit={handleSubmit}>
     <label htmlFor="name">Name</label>
     <input name="name" id="name" value={input.name} onChange={handleChange} />
-    <label htmlFor="recipeint">Recipeint</label>
-    <input name="recipeint" id="recipeint" value={input.recipeint} onChange={handleChange} />
-    <label htmlFor="occation">Occation</label>
-    <input name="occation" id="occation" value={input.occation} onChange={handleChange} />
+    <label htmlFor="recipient">Recipient</label>
+    <input name="recipient" id="recipient" value={input.recipient} onChange={handleChange} />
+    <label htmlFor="occasion">Occasion</label>
+    <input name="occasion" id="occasion" value={input.occasion} onChange={handleChange} />
     <label htmlFor="price">Price</label>
     <input type="number" name="price" id="price" value={input.price} onChange={handleChange} />
     <label htmlFor="link">Link</label>
