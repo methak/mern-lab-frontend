@@ -1,3 +1,4 @@
+
 import {useState, useEffect} from 'react';
 
 
@@ -22,6 +23,7 @@ function ItemDetail(props) {
             <p>{wishlist._id}</p>
             {/* will add code after test */}
         </>
+
     )
 };
 
