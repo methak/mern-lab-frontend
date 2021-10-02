@@ -56,7 +56,7 @@ return (
     <input type="text" name="link" id="link" value={input.link} onChange={handleChange} />
     <label htmlFor="img">Image</label>
     <input type="text" name="img" id="img" value={input.img} onChange={handleChange} />
-    <label htmlFor="isbought">Isbought</label>
+    <label htmlFor="isbought">Isbought?</label>
     <input type="checkbox" name="isBought" onChange={handleCheckBox}/>
     <input type="submit" value="Create a New Wishlist"/>
   </form>

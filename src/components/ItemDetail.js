@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
+
+import {useState, useEffect} from 'react';
+
 
 function ItemDetail(props) {
+    const currentId = props.match.params.id
     const [wishlist, setWishlist] = useState({})
 
-    const getWishlist = async () => {
-        console.log(props.match.params.id);
-        try {
-            const id = props.match.params.id
-            const foundItem = await fetch("http://localhost:9000/wishlist/" + id);
-            if (foundItem.status === 200) {
-                const parsedItem = await foundItem.json();
-                console.log(parsedItem);
-                setWishlist(parsedItem)
-            }
-        } catch (err) {
-            console.log(err);
-        }
+    const getWishlist = async(id) => {
+        const foundWishlist = await fetch('http://localhost:9000/wishlist/'+id)
+        const parsedWishlist = await foundWishlist.json()
+        console.log(parsedWishlist)
+        setWishlist(parsedWishlist)
     };
 
-    useEffect(() => getWishlist(), []);
+    useEffect(()=> {
+        getWishlist(currentId)
+    },[currentId]);
 
     return (
-        <div>
+        <>
+            <h1>Detail Page</h1>
             <p>{wishlist._id}</p>
-            <p>{wishlist.name}</p>
-            <p>{wishlist.recipient}</p>
-            <p>{wishlist.occation}</p>
-            <p>{wishlist.price} </p>
-            
-        </div>
+            {/* will add code after test */}
+        </>
+
     )
-}
+};
 
 export default ItemDetail
