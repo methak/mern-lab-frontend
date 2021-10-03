@@ -53,5 +53,6 @@ h2 {
       width: 20%;
       overflow: hidden;
       position: relative;
+      cursor: pointer;
   }
 }
