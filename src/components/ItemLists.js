@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import '../../src/App.css';
 
+
 function ItemLists(props) {
     const [wishlist, setWishlist] = useState([])
 
@@ -39,7 +40,7 @@ function ItemLists(props) {
        
         </div>
         <div>
-            <Link to="/wishlist/new">Create New Holiday</Link>
+            <button className='btn'><Link to="/wishlist/new">Create New Holiday</Link></button>
         </div>
         </>
     )
