@@ -29,8 +29,10 @@ function ItemLists(props) {
             <div className ="card red" key={item._id} onClick={() => {handleClick(item._id);
             }} >
             <h2>{item.name}</h2> 
-            <p> {item.recipient} </p>
-            <p>{item.occasion} {item.price} {item.isBought  ? "True" : "False"}</p>
+            <p>To: {item.recipient} </p>
+            <p>Occasion: {item.occasion} </p>
+            <p>Price: ${item.price}</p>
+            <p>Did you Buy?: {item.isBought  ? "Yes" : "Not Yet"}</p>
             <Link to={`/wishlist/${item._id}`}> &#62;&#62; </Link>
             </div>
           ))}

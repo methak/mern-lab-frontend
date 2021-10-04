@@ -1,4 +1,4 @@
-
+import './ItemDetail.css'
 import {useState, useEffect} from 'react';
 import { Link } from "react-router-dom";
 
@@ -19,15 +19,16 @@ function ItemDetail(props) {
 
     return (
         <>
-            <h1>Detail Page</h1>
-            <p>Id: {wishlist._id}</p>
-            <p>Name: {wishlist.name}</p>
-            <p>Recipient: {wishlist.recipient}</p>
-            <p>Occasion: {wishlist.occasion}</p>
-            <p>Price: {wishlist.price}</p>
-            <p>Link: {wishlist.link}</p>
-            <p>isBought: {wishlist.isBought ? "True" : "False"}</p>
-            
+        <div className="card">
+            <h1 className='card__title'>Detail Page</h1>
+            <p className='card__id'>Id: {wishlist._id}</p>
+            <p className='card__name'>Name: {wishlist.name}</p>
+            <p className='card__recipient'>Recipient: {wishlist.recipient}</p>
+            <p className='card__occasion'>Occasion: {wishlist.occasion}</p>
+            <p className='card__price'>Price: {wishlist.price}</p>
+            <p className='card__link'>Link: {wishlist.link}</p>
+            <p className='card__isbought'>isBought: {wishlist.isBought ? "True" : "False"}</p>
+        </div>    
             <Link to={"/wishlist"}>Go Back </Link>
             <Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link>
         </>
