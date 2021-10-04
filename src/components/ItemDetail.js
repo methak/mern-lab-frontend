@@ -7,7 +7,7 @@ function ItemDetail(props) {
     const [wishlist, setWishlist] = useState({})
 
     const getWishlist = async(id) => {
-        const foundWishlist = await fetch('http://localhost:9000/wishlist/'+id)
+        const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/'+id)
         const parsedWishlist = await foundWishlist.json()
         console.log(parsedWishlist)
         setWishlist(parsedWishlist)

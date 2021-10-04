@@ -16,7 +16,7 @@ function EditForm(props) {
     const getWishlistToEdit = async () => {
         try {
             const id = props.match.params.id;
-            const foundWishlist = await fetch('http://localhost:9000/wishlist/' + id)
+            const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id)
             const parsedWishlist = await foundWishlist.json()
             setInput(parsedWishlist)
             setLoading(false)
@@ -34,7 +34,7 @@ function EditForm(props) {
             }
         }
 
-        const updateWishlist = await fetch('http://localhost:9000/wishlist/' + id, configs)
+        const updateWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id, configs)
         const parsedUpdatedWishlist = await updateWishlist.json();
         console.log("after update:", parsedUpdatedWishlist.name);
         props.history.push('/wishlist/' + id)
@@ -66,7 +66,7 @@ function EditForm(props) {
     const deleteWishlist = async (id) => {
         try {
             const deletedWishlist = await fetch(
-                `http://localhost:9000/wishlist/${id}`,
+                `https://shrouded-river-09782.herokuapp.com/wishlist/${id}`,
                 {
                     method: "DELETE",
                 }

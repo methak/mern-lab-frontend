@@ -8,6 +8,10 @@ import EditForm from './components/EditForm';
 
 function App() {
   
+  useEffect(() => {
+    document.title = "My Wishlist"
+  }, [])
+
   return (
     <div className="App">
       <h1>Wishlist App</h1>

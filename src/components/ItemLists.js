@@ -7,7 +7,7 @@ function ItemLists(props) {
 
   const getWishlist = async () => {
     try {
-      const wishlist = await fetch("http://localhost:9000/wishlist");
+      const wishlist = await fetch("https://shrouded-river-09782.herokuapp.com/wishlist");
       const parsedWishlist = await wishlist.json();
       setWishlist(parsedWishlist);
     } catch (err) {
@@ -34,11 +34,9 @@ function ItemLists(props) {
             <Link to={`/wishlist/${item._id}`}> &#62;&#62; </Link>
             </div>
           ))}
-       
+        <div className='add-button'>+</div>
         </div>
-        <div>
-            <Link to="/wishlist/new">Create New Holiday</Link>
-        </div>
+        
         </>
     )
 }

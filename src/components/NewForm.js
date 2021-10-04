@@ -33,7 +33,7 @@ const addItem = async (data) => {
         "Content-Type": "application/json"
       }
     }
-    await fetch("http://localhost:9000/wishlist", configs)
+    await fetch("https://shrouded-river-09782.herokuapp.com/wishlist", configs)
     props.history.push('/wishlist')
   
   } catch (error) {
