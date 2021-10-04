@@ -6,9 +6,9 @@ This app allows users to create wishlists and manage them. The user can create, 
 
 REACT || JS || Mongoose || Surge || Heroku
 
-## Usage
 
-This Project deployed on Surge(Front-end) & Heroku(Back-end)
+## Screenshot
+![wishlist screenshot]. (./img.png)
 
 
 ## Contributing
