@@ -11,8 +11,10 @@
     --weight3: 600;
 }
 
+
 .card p {
     color: var(--grayishBlue);
+    font-size: 20px;
 }
 
 .card {
@@ -21,6 +23,22 @@
     padding: 30px;
     margin: 20px;
 }
+
+.btn {
+    border: none;
+    border-top:1px solid ( hsl(229, 6%, 66%));
+    background-color: transparent;
+    font-family:inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: inherit;
+    width: 100%;
+    padding-top:1rem;
+    margin-top:1rem;
+    cursor:pointer;
+}
+
+
 
 .cyan {
     border-top: 3px solid var(--cyan);
@@ -38,7 +56,8 @@
     border-top: 3px solid var(--orange);
 }
 
-h2 {
+
+h1 {
     color: var(--varyDarkBlue);
     font-weight: var(--weight3);
 }

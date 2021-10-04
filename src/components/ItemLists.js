@@ -33,7 +33,7 @@ function ItemLists(props) {
             <p>Occasion: {item.occasion} </p>
             <p>Price: ${item.price}</p>
             <p>Did you Buy?: {item.isBought  ? "Yes" : "Not Yet"}</p>
-            <Link to={`/wishlist/${item._id}`}> &#62;&#62; </Link>
+            <Link to={`/wishlist/${item._id}`}></Link>
             </div>
           ))}
        

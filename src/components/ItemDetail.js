@@ -29,8 +29,8 @@ function ItemDetail(props) {
             <p className='card__link'>Link: {wishlist.link}</p>
             <p className='card__isbought'>isBought: {wishlist.isBought ? "True" : "False"}</p>
         </div>    
-            <Link to={"/wishlist"}>Go Back </Link>
-            <Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link>
+            <button className="btn"><Link to={"/wishlist"}>Go Back </Link></button>
+            <button className="btn"><Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link></button>
         </>
 
     )
