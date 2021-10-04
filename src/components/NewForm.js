@@ -44,8 +44,10 @@ const NewForm = (props) => {
   }
 
   return (
+    <div>
+      <h1>Create New Wishlist</h1>
     <div className='wrapper'>
-      <div className='card'>
+      <div className='card red'>
         <form onSubmit={handleSubmit}>
           <p>
           <label htmlFor="name">Name</label>
@@ -78,6 +80,7 @@ const NewForm = (props) => {
           </p>
         </form>
       </div>
+    </div>
     </div>
   )
 };

@@ -39,10 +39,12 @@
 }
 
 
-h2 {
+h1 {
   color: var(--varyDarkBlue);
   font-weight: var(--weight3);
 }
+
+
 @media (min-width: 950px) {
   .wrapper {
       display: flex;
@@ -57,3 +59,4 @@ h2 {
       cursor: pointer;
   }
 }
+
