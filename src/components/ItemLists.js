@@ -37,14 +37,9 @@ function ItemLists(props) {
             <Link to={`/wishlist/${item._id}`}></Link>
             </div>
           ))}
-<<<<<<< HEAD
-        <div className='add-button'>+</div>
-=======
-       
-        </div>
-        <div>
-            <button className='btn'><Link to="/wishlist/new">Create New Holiday</Link></button>
->>>>>>> 468ff54ecb284bda9fa2fa05502ee82652d37c5f
+
+        <div className='add-button'><Link to="/wishlist/new">+</Link></div>
+
         </div>
         
         </>
