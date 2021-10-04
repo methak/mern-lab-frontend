@@ -20,13 +20,13 @@ function ItemDetail(props) {
     return (
         <div className='wrapper'>
             <div className="card">
-                <h1 className='card__title'>Detail Page</h1>
-                <p className='card__name'><span className='span'>Name:</span> {wishlist.name}</p>
-                <p className='card__recipient'><span className='span'>Recipient:</span> {wishlist.recipient}</p>
-                <p className='card__occasion'><span className='span'>Occasion:</span> {wishlist.occasion}</p>
-                <p className='card__price'><span className='span'>Price: </span> ${wishlist.price}</p>
-                <p className='card__link'><span className='span'>Link:</span> {wishlist.link}</p>
-                <p className='card__isbought'><span className='span'>isBought:</span> {wishlist.isBought ? "True" : "False"}</p>
+                <h1>Detail Page</h1>
+                <p><span className='span'>Name:</span> {wishlist.name}</p>
+                <p><span className='span'>Recipient:</span> {wishlist.recipient}</p>
+                <p><span className='span'>Occasion:</span> {wishlist.occasion}</p>
+                <p><span className='span'>Price: </span> ${wishlist.price}</p>
+                <p><span className='span'>Link:</span> {wishlist.link}</p>
+                <p><span className='span'>isBought:</span> {wishlist.isBought ? "True" : "False"}</p>
                 <div>
                     <button className="btn"><Link to={"/wishlist"}>Go Back </Link></button>
                     <button className="btn"><Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link></button>

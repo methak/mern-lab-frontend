@@ -18,11 +18,10 @@
 .card p {
     color: var(--grayishBlue);
     font-size: 20px;
-    color: black;
 }
 
 .card span{
-    color: hsl(229, 6%, 66%);
+    color: hsl(234, 12%, 34%);
 }
 
 .card {
