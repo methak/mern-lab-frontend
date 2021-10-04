@@ -51,13 +51,13 @@ function EditForm(props) {
         setInput({ ...input, [e.target.name]: e.target.value })
     }
 
-    const handleCheckBox = (e) =>{
+    const handleCheckBox = (e) => {
         setInput({ ...input, isBought: !input.isBought })
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         getWishlistToEdit()
-    },[])
+    }, [])
 
     const toggleDeleteModal = (e) => {
         e.preventDefault();
@@ -71,7 +71,7 @@ function EditForm(props) {
                     method: "DELETE",
                 }
             );
-            console.log(deletedWishlist);    
+            console.log(deletedWishlist);
             const parsedDeletedWishlist = await deletedWishlist.json();
             props.history.push("/wishlist");
         } catch (err) {
@@ -85,43 +85,50 @@ function EditForm(props) {
             {loading ? (
                 <h3>Loading...</h3>
             ) : (
-            <form onSubmit = {handleSubmit}>
-                <div>
-                    <label htmlFor='name'>Name</label>
-                    <input name='name' id='name' value={input.name} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor='recipient'>Recipient</label>
-                    <input name='recipient' id='recipient' value={input.recipient} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor='occasion'>Occation</label>
-                    <input name='occasion' id='occasion' value={input.occasion} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor='price'>Price</label>
-                    <input type='number' name='price' id='price' value={input.price} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor='link'>Link</label>
-                    <input type='text' name='link' id='link' value={input.link} onChange={handleChange} />
-                </div>
-                {/* <div>
-                    <label htmlFor='img'>Image</label>
-                    <input type='text' name='img' id='img' value={input.img} onChange={handleChange} />
-                </div> */}
-                <div>
-                    <label htmlFor='isBought'>isBought?</label>
-                    <input type='checkbox' name='isBought' id='isBought' checked={input.isBought} onChange={handleCheckBox} />    
-                </div>
-                <br/>
-                <div>
-                    <button onClick={() => props.history.goBack()}>Go Back</button>
-                    <input type='submit' value='Edit this Wishlist'/>
-                    <button onClick={toggleDeleteModal}>Delete Item</button>
-                </div>
-            </form>
-            )}    
+                <form onSubmit={handleSubmit}>
+                    <div className='wrapper'>
+                        <div className='card red'>
+                            <form onSubmit={handleSubmit}>
+                                <p>
+                                    <label htmlFor="name">Name</label>
+                                    <input name="name" id="name" value={input.name} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="recipient">Recipient</label>
+                                    <input name="recipient" id="recipient" value={input.recipient} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="occasion">Occasion</label>
+                                    <input name="occasion" id="occasion" value={input.occasion} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="price">Price</label>
+                                    <input type="number" name="price" id="price" value={input.price} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="link">Link</label>
+                                    <input type="text" name="link" id="link" value={input.link} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="img">Image</label>
+                                    <input type="text" name="img" id="img" value={input.img} onChange={handleChange} />
+                                </p>
+                                <p>
+                                    <label htmlFor="isbought">Isbought?</label>
+                                    <input type="checkbox" name="isBought" onChange={handleCheckBox} />
+                                    <input type="submit" value="Create a New Wishlist" />
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+                    <div>
+                        <button onClick={() => props.history.goBack()}>Go Back</button>
+                        <input type='submit' value='Edit this Wishlist' />
+                        <button onClick={toggleDeleteModal}>Delete Item</button>
+                    </div>
+                </form>
+            )}
             {showModal ? (
                 <div>
                     <h1>Confirm Deletion</h1>
@@ -132,7 +139,7 @@ function EditForm(props) {
                     </div>
                 </div>
             ) : null}
-        
+
         </div>
     )
 }
