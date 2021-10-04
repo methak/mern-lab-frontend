@@ -1,0 +1,84 @@
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+.card p {
+    color: var(--grayishBlue);
+    font-size: 20px;
+}
+
+.card span{
+    color: hsl(234, 12%, 34%);
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+    padding: 30px;
+    margin: 20px;
+}
+
+/* .btn {
+    border: none;
+    border-top:1px solid ( hsl(229, 6%, 66%));
+    background-color: transparent;
+    font-family:inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    color: inherit;
+    width: 100%;
+    padding-top:1rem;
+    margin-top:1rem;
+    cursor:pointer;
+} */
+
+
+
+.cyan {
+    border-top: 3px solid var(--cyan);
+}
+
+.red {
+    border-top: 3px solid var(--red);
+}
+
+.blue {
+    border-top: 3px solid var(--blue);
+}
+
+.orange {
+    border-top: 3px solid var(--orange);
+}
+
+
+h1 {
+    color: var(--varyDarkBlue);
+    font-weight: var(--weight3);
+}
+
+@media (min-width: 950px) {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .card {
+        width: 20%;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+}

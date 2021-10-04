@@ -38,10 +38,13 @@
   border-top: 3px solid var(--orange);
 }
 
-h2 {
+
+h1 {
   color: var(--varyDarkBlue);
   font-weight: var(--weight3);
 }
+
+
 @media (min-width: 950px) {
   .wrapper {
       display: flex;
@@ -56,3 +59,4 @@ h2 {
       cursor: pointer;
   }
 }
+
