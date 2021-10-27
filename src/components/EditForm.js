@@ -8,22 +8,22 @@ function EditForm(props) {
         price: 0,
         link: '',
         isBought: false
-    }
+    };
     const [showModal, setShowModal] = useState(false);
-    const [input, setInput] = useState(initialState)
-    const [loading, setLoading] = useState(true)
+    const [input, setInput] = useState(initialState);
+    const [loading, setLoading] = useState(true);
 
     const getWishlistToEdit = async () => {
         try {
             const id = props.match.params.id;
-            const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id)
-            const parsedWishlist = await foundWishlist.json()
-            setInput(parsedWishlist)
-            setLoading(false)
+            const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id);
+            const parsedWishlist = await foundWishlist.json();
+            setInput(parsedWishlist);
+            setLoading(false);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 
     const updateWishlist = async (id, data) => {
         const configs = {
@@ -34,30 +34,30 @@ function EditForm(props) {
             }
         }
 
-        const updateWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id, configs)
+        const updateWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/' + id, configs);
         const parsedUpdatedWishlist = await updateWishlist.json();
         console.log("after update:", parsedUpdatedWishlist.name);
-        props.history.push('/wishlist/' + id)
-    }
+        props.history.push('/wishlist/' + id);
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const { name, recipient, occasion, price, link, isBought } = input;
-        const wishlistData = { name, recipient, occasion, price, link, isBought }
+        const wishlistData = { name, recipient, occasion, price, link, isBought };
         updateWishlist(input._id, wishlistData);
-    }
+    };
 
     const handleChange = (e) => {
-        setInput({ ...input, [e.target.name]: e.target.value })
-    }
+        setInput({ ...input, [e.target.name]: e.target.value });
+    };
 
     const handleCheckBox = (e) => {
-        setInput({ ...input, isBought: !input.isBought })
-    }
+        setInput({ ...input, isBought: !input.isBought });
+    };
 
     useEffect(() => {
-        getWishlistToEdit()
-    }, [])
+        getWishlistToEdit();
+    }, []);
 
     const toggleDeleteModal = (e) => {
         e.preventDefault();
@@ -128,7 +128,7 @@ function EditForm(props) {
                         <button onClick={toggleDeleteModal}>Delete Item</button>
                     </div>
                 </form>
-            )}
+            )};
             {showModal ? (
                 <div>
                     <h1>Confirm Deletion</h1>
@@ -138,10 +138,10 @@ function EditForm(props) {
                         <button onClick={toggleDeleteModal}>Cancel</button>
                     </div>
                 </div>
-            ) : null}
+            ) : null};
 
         </div>
     )
-}
+};
 
-export default EditForm
+export default EditForm;

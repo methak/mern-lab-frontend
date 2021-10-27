@@ -1,23 +1,23 @@
-import './ItemDetail.css'
+import './ItemDetail.css';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 function ItemDetail(props) {
-    const currentId = props.match.params.id
-    const [wishlist, setWishlist] = useState({})
+    const currentId = props.match.params.id;
+    const [wishlist, setWishlist] = useState({});
 
 
     const getWishlist = async(id) => {
-        const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/'+id)
+        const foundWishlist = await fetch('https://shrouded-river-09782.herokuapp.com/wishlist/'+id);
 
 
-        const parsedWishlist = await foundWishlist.json()
-        console.log(parsedWishlist)
-        setWishlist(parsedWishlist)
+        const parsedWishlist = await foundWishlist.json();
+        console.log(parsedWishlist);
+        setWishlist(parsedWishlist);
     };
 
     useEffect(() => {
-        getWishlist(currentId)
+        getWishlist(currentId);
     }, [currentId]);
 
     return (
@@ -36,10 +36,9 @@ function ItemDetail(props) {
                         <button className="btn"><Link to={`/wishlist/${wishlist._id}/edit`}>Edit this Item </Link></button>
                     </div>
                 </div>
-
             </div>
         </div>
     )
 };
 
-export default ItemDetail
+export default ItemDetail;

@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import '../../src/App.css';
 
 
 function ItemLists(props) {
-    const [wishlist, setWishlist] = useState([])
-
+  const [wishlist, setWishlist] = useState([]);
   const getWishlist = async () => {
     try {
       const wishlist = await fetch("https://shrouded-river-09782.herokuapp.com/wishlist");
@@ -16,8 +15,8 @@ function ItemLists(props) {
     }
   };
   const handleClick = (id) => {
-    props.history.push('/wishlist/' + id)
-  }
+    props.history.push('/wishlist/' + id);
+  };
 
   useEffect(() => {
     getWishlist();
@@ -25,7 +24,6 @@ function ItemLists(props) {
     return (
         <>
         <div className="wrapper">
-            
           {wishlist && wishlist.map(item => (
             <div className ="card red" key={item._id} onClick={() => {handleClick(item._id);
             }} >
@@ -36,14 +34,11 @@ function ItemLists(props) {
             <p>Did you Buy?: {item.isBought  ? "Yes" : "Not Yet"}</p>
             <Link to={`/wishlist/${item._id}`}></Link>
             </div>
-          ))}
-
+          ))};
         <div className='add-button'><Link to="/wishlist/new">+</Link></div>
-
         </div>
-        
         </>
     )
-}
+};
 
-export default ItemLists
+export default ItemLists;
